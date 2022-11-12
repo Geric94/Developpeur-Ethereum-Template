@@ -48,7 +48,7 @@ describe("TEST: Voting", () => {
         it("Trudy must not be the owner", async () => {
             const _owner = await voting.owner();
             //await expectRevert(voting.owner("", {from: eric}), "ce joueur a déjà joué"); Essai
-            await expect(trudy.address).not.to.equal(_owner, "Trudy should not be the Owner");
+            await expectclea(trudy.address).not.to.equal(_owner, "Trudy should not be the Owner");
         });
         it("Trudy can't add a voter", async () => {
             //On precise que c'est trudy qui fait l'action
@@ -59,7 +59,7 @@ describe("TEST: Voting", () => {
             //Pas de précision, donc c'est le owner cad eric
             const _addvoter = voting.addVoter(alice.address);
             await expect(_addvoter).to.emit(voting, "VoterRegistered").withArgs(alice.address);
-            //expectEvent(_addvoter, "VoterRegistered", {address: bob.address, owner: bob});
+            //expectEvent(_addvoter, "VoterRegistered", {address: bob.address, owner: bob}); Essai
         });
     });
 
