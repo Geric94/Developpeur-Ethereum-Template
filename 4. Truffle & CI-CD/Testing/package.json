@@ -1,0 +1,32 @@
+{
+  "name": "02-testing",
+  "version": "1.0.0",
+  "description": "Projet 02: Test du projet de vote",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "geric",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/test-helpers": "^0.5.16",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.12.1",
+    "web3": "^1.8.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3",
+    "solidity-coverage": "^0.8.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "@geric94"
+  }
+}
