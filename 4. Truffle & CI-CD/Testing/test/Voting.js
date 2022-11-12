@@ -59,7 +59,7 @@ describe("TEST: Voting", () => {
             //Pas de précision, donc c'est le owner cad eric
             const _addvoter = voting.addVoter(alice.address);
             await expect(_addvoter).to.emit(voting, "VoterRegistered").withArgs(alice.address);
-            //expectEvent(_addvoter, "VoterRegistered", {address: bob.address, owner: bob}); Essai
+            //expectEvent(_addvoter, "VoterRegistered", {address: bob.address, owner: bob}); Essai 2
         });
     });
 
