@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-//import { ethers } from 'ethers';
+import { ethers } from 'ethers';
+import InfosAccount from './InfosAccounts'
 //import './Voter.css';
 
 function Voter() {
     const [loader, setLoader] = useState(true);
     const [accounts, setAccounts] = useState([]);
-    /*const [balance, setBalance] = useState();
-    const [succes, setSucces] = useState('');
-    const [error, setError] = useState('');*/
+    const [balance, setBalance] = useState();
+    //const [succes, setSucces] = useState('');
+    //const [error, setError] = useState('');
 
     useEffect(() => {
         getAccounts();
@@ -35,17 +36,16 @@ function Voter() {
         if (typeof window.ethereum !== 'undefined') {
             let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             setAccounts(accounts);
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const balance = await provider.getBalance(accounts[0]);
+            const balancelnEth = ethers.utils.formatEther(balance);
+            setBalance(balancelnEth);
         }
     }
 
     return (
         <div className="Voter">
-            {!loader &&
-            accounts.length > 0 ?
-            <p>You are connect with this account : {accounts[0]} </p>
-            :
-            <p>You have not conneted your Metamask account</p>
-            }
+            <InfosAccount accounts={accounts} balance={balance} loader={loader} />
         </div>
     );
 }
