@@ -95,10 +95,10 @@ contract("Voting", function (accounts) {
         await Voting.addProposal("proposalVoter2", {from: voter2})
         await Voting.addProposal("proposalVoter3", {from: voter3})
 
-        let voter1ProposalID = await Voting.getOneProposal(0 , {from: voter1});
-        let voter2ProposalID = await Voting.getOneProposal(1 , {from: voter2});
-        let voter3ProposalID = await Voting.getOneProposal(2 , {from: voter3});
-
+        let voter1ProposalID = await Voting.getOneProposal(1 , {from: voter1});
+        let voter2ProposalID = await Voting.getOneProposal(2 , {from: voter2});
+        let voter3ProposalID = await Voting.getOneProposal(3 , {from: voter3});
+        
         expect(voter1ProposalID.description).to.be.equal("proposalVoter1");
         expect(voter2ProposalID.description).to.be.equal("proposalVoter2");
         expect(voter3ProposalID.description).to.be.equal("proposalVoter3");
