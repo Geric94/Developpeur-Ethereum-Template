@@ -1,4 +1,3 @@
-//import { useState, useEffect } from "react";
 import { listVotants } from './index';
 import { v4 as uuidv4} from 'uuid';
 
@@ -26,7 +25,7 @@ function AddVotant(props) {
                         if(props.balance >= 0.3) {
                             listVotants.doc(newDataObj.id).set(newDataObj)
                             .then(result => {
-                                props. setSuccess('You have been added to the whitelist !')
+                                props.setSuccess('You have been added to the whitelist !')
                                 props.setError('');
                             })
                             .catch((err) => {

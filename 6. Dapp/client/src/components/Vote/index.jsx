@@ -24,7 +24,6 @@ function Voter() {
 
     window.ethereum.addListener('connect', async(reponse) => {
         getAccounts();
-        //console.log('Ok');
     })
 
     window.ethereum.on('accountsChanged', () => {
