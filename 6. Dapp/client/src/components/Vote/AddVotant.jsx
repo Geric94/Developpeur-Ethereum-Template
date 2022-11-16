@@ -25,47 +25,47 @@ function AddVotant(props) {
                         if(props.balance >= 0.3) {
                             listVotants.doc(newDataObj.id).set(newDataObj)
                             .then(result => {
-                                props.setSuccess('You have been added to the whitelist !')
+                                props.setSuccess('Vous avez été ajouté sur la liste des votants !')
                                 props.setError('');
                             })
                             .catch((err) => {
                                 props.setSuccess('');
-                                props.setError('Error, we are sorry.');
+                                props.setError('Désolé, il y a eu une erreur.');
                             })
                         }
                         else {
                             props.setSuccess('');
-                            props.setError('Not enought funds on your wallet (0.3 minimum).');
+                            props.setError('Vous n\'avez pas asser d\'ETH pour participé au vote (0.3 minimum).');
                         }
                     }
                     else {
                             props.setSuccess('');
-                            props.setError('this address is already on the whitelist !');
+                            props.setError('Vous étes déjà sur la liste des votants !');
                     }
                 })
                 .catch(function(error) {
                     props.setSuccess('');
-                    props.setError('Error we are sorry.');
+                    props.setError('Désolé, il y a eu une erreur.');
                 })
             }
             else {
                 props.setSuccess('');
-                props.setError('Whitelist max limit exceeded.');
+                props.setError('La limite du nombre de votants a été atteintes. A une prochaine fois');
             }
             setTimeout(props.getCountVotant, 500);
             //props.getCountVotant();
         }
         else {
             props.setSuccess('');
-            props.setError('Invalid address.');
+            props.setError('Adresse invalide.');
         }
     }
     return (
         <div>
-            {//props.balance >= 0.3 &&
+            {props.balance >= 0.3 &&
                 <button className="btn" onClick={() => {
                     createDoc({address: props.accounts[0], id: uuidv4(), balance: props.balance})
-                }}>Add Votant</button>
+                }}>Demande de participation au vote</button>
             }
         </div>
     )

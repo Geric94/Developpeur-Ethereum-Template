@@ -19,8 +19,8 @@ function Demo() {
         <Contract value={value} />
         <ContractBtns setValue={setValue} />
       </div>
-      <Desc />
     </>;
+//      <Desc />
 
   return (
     <div className="demo">

@@ -22,14 +22,14 @@ function Admin() {
         firebaseApp.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             setLogged(true);
-            setSuccess('You are logged');
+            setSuccess('Vous êtes logged');
             setError('');
             getData();
         })
         .catch((error) => {
             setLogged(false);
             setSuccess('');
-            setError('Bad authentification');
+            setError('Mauvaise authentification');
         })
     }
 
@@ -57,7 +57,7 @@ function Admin() {
         }
         listVotants.doc(obj.id).set(obj)
         .then(result => {
-            setSuccess('User added on the whitelist');
+            setSuccess('Vous avez été ajouter au vote, Demande d\'acceptation en cours');
             setError('');
         })
         .catch((err) => {
@@ -89,7 +89,7 @@ function Admin() {
                 }
                 Add an address on the whitelist
                 <input type="text" onChange={e => setAddress(e.target.value)} />
-                <button onClick={addOnWhitelist}>Add on the votant on Whitelist</button>
+                <button onClick={addOnWhitelist}>Vous avez été ajouté à la liste des votants</button>
             </div>
             }
         </div>

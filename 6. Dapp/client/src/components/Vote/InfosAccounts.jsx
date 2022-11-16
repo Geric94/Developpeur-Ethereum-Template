@@ -4,12 +4,12 @@ function InfosAccount(props) {
             {   !props.loader &&
                 props.accounts.length > 0 ?
                 <div>
-                    <p>You are connected with this account : {props.accounts[0]}</p>
-                    {props.balance && <p>You have {props.balance} Eth on your account.</p>}
-                    {props.balance < 0.3 && <p className="infos">You don't have enought ETH on your account to go on our whitelist.</p>}
+                    <p>Vous êtes connecté avec cette adresse : {props.accounts[0]}</p>
+                    {props.balance && <p>Vous avez {props.balance} Eth sur votre compte.</p>}
+                    {props.balance < 0.3 && <p className="infos">Vous n'avez pas assez d'ETH sur votre compte pour participer au vote.</p>}
                 </div>
                 :
-                <p>You are not connected with Metamask to this website.</p>
+                <p>Vous n'êtes pas connecté avec votre wallet à ce site.</p>
             }
         </div>
     )
