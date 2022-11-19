@@ -1,15 +1,16 @@
 import Welcome from "./Welcome";
-import Tree from "./Tree";
-import Desc from "./Desc";
+//import Tree from "./Tree";
+//import Desc from "./Desc";
 
 function Intro() {
   return (
     <>
       <Welcome />
-      <Tree />
-      <Desc />
     </>
   );
 }
+
+//<Tree />
+//<Desc />
 
 export default Intro;

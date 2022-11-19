@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect/*, useContext*/ } from 'react';
 import { ethers } from 'ethers';
 import InfosAccount from './InfosAccounts';
 import AddVotant from './AddVotant';
 import firebaseApp from '../FireBase';
-import EthContext from '../../contexts/EthContext/EthContext'
+//import EthContext from '../../contexts/EthContext/EthContext'
 //import VotingContext from '../../contexts/VotingContext/VotingContext'
 //import './Voter.css';
 

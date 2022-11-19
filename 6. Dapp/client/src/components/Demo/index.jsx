@@ -4,7 +4,7 @@ import Title from "./Title";
 import Cta from "./Cta";
 import Contract from "./Contract";
 import ContractBtns from "./ContractBtns";
-import Desc from "./Desc";
+//import Desc from "./Desc";
 import NoticeNoArtifact from "./NoticeNoArtifact";
 import NoticeWrongNetwork from "./NoticeWrongNetwork";
 
@@ -18,9 +18,9 @@ function Demo() {
       <div className="contract-container">
         <Contract value={value} />
         <ContractBtns setValue={setValue} />
-        <Desc />
       </div>
     </>;
+//        <Desc />
 
   return (
     <div className="demo">
