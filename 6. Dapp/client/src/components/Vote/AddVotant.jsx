@@ -1,20 +1,19 @@
 import { listVotants } from './index';
-import { v4 as uuidv4} from 'uuid';
 
 function AddVotant(props) {
 
-    function createDoc(newDataObj) {		
+    function createDoc(newDataObj) {
         //Refresh number of whitelisted	
         props.getCountVotant();
-        console.log(newDataObj.id);
+        //console.log(newDataObj.id);
 
         //The Ethereum address is valid	
-        if(newDataObj.address.match(/^0x[a-fA-F0-9]{40}$/)) {	
+        if(newDataObj.id.match(/^0x[a-fA-F0-9]{40}$/)) {	
             //Whitelist limit exceeded ?
             if(props.countVotant < 5) {
                 //Does this address already exists in the DB ?
                 let i = 0;
-                listVotants.where("address", "==", newDataObj.address)
+                listVotants.where("id", "==", newDataObj.id)
                 .get()
                 .then(function(querySnapshot) {
                     querySnapshot.forEach(function(doc) {
@@ -30,7 +29,7 @@ function AddVotant(props) {
                             })
                             .catch((err) => {
                                 props.setSuccess('');
-                                props.setError('Désolé, il y a eu une erreur.');
+                                props.setError('Désolé, il y a eu une erreur(1).');
                             })
                         }
                         else {
@@ -45,7 +44,7 @@ function AddVotant(props) {
                 })
                 .catch(function(error) {
                     props.setSuccess('');
-                    props.setError('Désolé, il y a eu une erreur.');
+                    props.setError('Désolé, il y a eu une erreur(2).');
                 })
             }
             else {
@@ -64,7 +63,7 @@ function AddVotant(props) {
         <div>
             {props.balance >= 0.3 &&
                 <button className="btn" onClick={() => {
-                    createDoc({address: props.accounts[0], id: uuidv4(), balance: props.balance})
+                    createDoc({id: props.accounts[0], lastName: props.lastName, balance: props.balance})
                 }}>Demande de participation au vote</button>
             }
         </div>

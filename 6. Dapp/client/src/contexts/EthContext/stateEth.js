@@ -10,11 +10,11 @@ const initialState = {
   contract: null
 };
 
-const reducer = (state, action) => {
+const reducer = (stateEth, action) => {
   const { type, data } = action;
   switch (type) {
     case actions.init:
-      return { ...state, ...data };
+      return { ...stateEth, ...data };
     default:
       throw new Error("Undefined reducer action type");
   }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import useEth from "../../contexts/EthContext/useEth";
 
 function ContractBtns({ setValue }) {
-  const { state: { contract, accounts } } = useEth();
+  const { stateEth: { contract, accounts } } = useEth();
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = e => {

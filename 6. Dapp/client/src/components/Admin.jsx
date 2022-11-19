@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { listVotants } from './Vote/index';
-import { v4 as uuidv4} from 'uuid';
+import { listVotants/*, currentState*/ } from './Vote/index';
 import firebaseApp from './FireBase';
-//import AddVotant from './Vote/AddVotant';
 
 function Admin() {
     const [email, setEmail] = useState('');
@@ -11,6 +9,7 @@ function Admin() {
     const [data, setData] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [address, setAddress] = useState('');
+    const [lastName, setLastName] = useState('');
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
 
@@ -33,7 +32,7 @@ function Admin() {
         })
     }
 
-    function getData() {	
+    function getData() {
         listVotants.onSnapshot((querySnapshot) => {
             const items = [];
             querySnapshot.forEach((doc) => {
@@ -48,12 +47,13 @@ function Admin() {
     }
 
     function addOnWhitelist() {
-        let balance = 0;
-        let id = uuidv4();
+        let _balance = 0;
+        let _id = address;
+        let _lastName = lastName;
         let obj = {
-            address: address,
-            id: id,
-            balance: balance
+            id: _id,  //address eth
+            lastName: _lastName,
+            balance: _balance
         }
         listVotants.doc(obj.id).set(obj)
         .then(result => {
@@ -66,6 +66,11 @@ function Admin() {
         })
     }
 
+    /*function nextState() {
+        let _currentState = currentState++;
+        setState(_currentState);
+    }*/
+    
     return (
         <div>
             {error && <p className="alert error">{error}</p>}
@@ -80,20 +85,25 @@ function Admin() {
             </div>
             :
             <div>
-                Listing of accounts on the whitelist
+                Liste des votants
                 {loaded &&
                     data.map(element => {
-                        return <li key={element.id}>{element.address} - {element.balance}
+                        return <li key={element.lastName}>{element.id} - {element.balance}
                         - <button value={element.id} onClick={deleteAddress}>Delete</button></li>
                     })
                 }
-                Add an address on the whitelist
-                <input type="text" onChange={e => setAddress(e.target.value)} />
-                <button onClick={addOnWhitelist}>Vous avez été ajouté à la liste des votants</button>
+                Ajout d\'une addresse dans la liste des votants
+                <div>
+                    Name:<input type="text" onChange={e => setLastName(e.target.value)} />
+                    Adresse:<input type="text" onChange={e => setAddress(e.target.value)} />
+                </div>
+                <button onClick={addOnWhitelist}>Ajouter à la liste des votants</button>
             </div>
             }
         </div>
     )
 }
+//Change d\'état
+//<button onClick={nextState}>Etape suivante</button>
 
 export default Admin;

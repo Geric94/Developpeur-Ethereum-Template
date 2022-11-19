@@ -1,30 +1,32 @@
 import { EthProvider } from "./contexts/EthContext";
+import { VotingProvider} from "./contexts/VotingContext";
 import Intro from "./components/Intro/";
-//import Setup from "./components/Setup";
+import Setup from "./components/Setup";
 import Vote from "./components/Vote";
 import Demo from "./components/Demo";
-//import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
   return (
-    <EthProvider>
       <div id="App" >
         <div className="container">
           <Intro />
           <hr />
-          <Vote />
-          <hr />
-          <Demo />
+          <EthProvider>
+            <VotingProvider>
+              <Setup />
+              <hr />
+              <Vote />
+              <hr />
+              <Demo />
+              <hr />
+              <Footer />
+            </VotingProvider>
+          </EthProvider>
         </div>
       </div>
-    </EthProvider>
   );
 }
-
-//<hr />
-//<Setup />
-//<hr />
-//<Footer />
 
 export default App;

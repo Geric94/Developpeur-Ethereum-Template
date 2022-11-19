@@ -1,10 +1,10 @@
 import React, { useReducer, useCallback, useEffect } from "react";
 import Web3 from "web3";
 import EthContext from "./EthContext";
-import { reducer, actions, initialState } from "./state";
+import { reducer, actions, initialState } from "./stateEth";
 
 function EthProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [stateEth, dispatch] = useReducer(reducer, initialState);
 
   const init = useCallback(
     async artifact => {
@@ -30,7 +30,7 @@ function EthProvider({ children }) {
   useEffect(() => {
     const tryInit = async () => {
       try {
-        const artifact = require("../../contracts/SimpleStorage.json");
+        const artifact = require("../../contracts/Voting.json");
         init(artifact);
       } catch (err) {
         console.error(err);
@@ -43,18 +43,18 @@ function EthProvider({ children }) {
   useEffect(() => {
     const events = ["chainChanged", "accountsChanged"];
     const handleChange = () => {
-      init(state.artifact);
+      init(stateEth.artifact);
     };
 
     events.forEach(e => window.ethereum.on(e, handleChange));
     return () => {
       events.forEach(e => window.ethereum.removeListener(e, handleChange));
     };
-  }, [init, state.artifact]);
+  }, [init, stateEth.artifact]);
 
   return (
     <EthContext.Provider value={{
-      state,
+      stateEth,
       dispatch
     }}>
       {children}

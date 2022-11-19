@@ -6,10 +6,10 @@ function Intro() {
   return (
     <>
       <Welcome />
+      <Tree />
+      <Desc />
     </>
   );
 }
-//<Tree />
-//<Desc />
 
 export default Intro;
