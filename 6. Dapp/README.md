@@ -1,5 +1,6 @@
 Donc, ce que J'ai eu le temps de faire :
 une interface rapide, toutes les fonctionnalité ont pratiquement été developpé,mais l'application plante, voir vidéo.
+https://www.loom.com/share/829dc1bc15bf4e04b3fa7c9db7ee796c
 IL y a le code dans le dossier 6. dapp.
 Le Voting.sol a été mofifié pour prendre en compte la sécurité, passage du tableau avec une limite à 50 propositions, donc dans le réportoire Truffle/contract
 Echec du deploiement sur versel, surement parce que pas fonctionnel ?
