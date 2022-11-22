@@ -1,16 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ReactDOM from 'react-dom';
+import Web3Provider from './context/Web3Provider'
 import App from './App';
-import Admin from './components/Admin.jsx';
-import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Router>
-    <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/admin" component={Admin} />
-    </Switch>
-  </Router>
-);
+
+ReactDOM.render(
+    <Web3Provider>
+        <App />
+    </Web3Provider>,
+     document.getElementById('root'));
+
