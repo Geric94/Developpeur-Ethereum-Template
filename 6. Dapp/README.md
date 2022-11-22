@@ -1,3 +1,13 @@
+Donc, ce que J'ai eu le temps de faire :
+une interface rapide, toutes les fonctionnalité ont pratiquement été developpé,mais l'application plante, voir vidéo.
+IL y a le code dans le dossier 6. dapp.
+Le Voting.sol a été mofifié pour prendre en compte la sécurité, passage du tableau avec une limite à 50 propositions, donc dans le réportoire Truffle/contract
+Echec du deploiement sur versel, surement parce que pas fonctionnel ?
+
+![alt text](https://github.com/Geric94/Developpeur-Ethereum-Template/blob/master/6.%20Dapp/Capture%20d%E2%80%99%C3%A9cran%202022-11-23%20000220.png?raw=true)
+
+Voila. 
+
 # React Truffle Box
 
 This box comes with everything you need to start using Truffle to write, compile, test, and deploy smart contracts, and interact with them from a React app.
